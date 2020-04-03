@@ -11,7 +11,7 @@ const NavBar = () => {
                 <img src={require('../assets/ROOMH_Title_Blue.svg')} alt="logo" className="header-title"/>
                 </div>
 
-                {/* <div className="navlinks">
+                <div className="navlinks">
                 <NavLink to="/">Home</NavLink>
                 {this.props.currentUser ? 
                 <span className="user">
@@ -24,10 +24,10 @@ const NavBar = () => {
                 : 
                 <span className="login-signup">
                 <NavLink to="/login">Login</NavLink>
-                <NavLink to="/signup">Signup</NavLink>
+                <NavLink to="/signup">Sign Up</NavLink>
                 </span>
                 }
-                </div> */}
+                </div>
                 
             </div>
         )
