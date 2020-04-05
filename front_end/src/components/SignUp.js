@@ -5,7 +5,7 @@ import {reduxForm, Field} from 'redux-form'
 
 const SignUp = (props) => {
   
-    console.log(props)
+
     return (
             <div className="signup-form-container">
                 <form className="signup-form">
@@ -16,7 +16,8 @@ const SignUp = (props) => {
     );
   
 }
- 
+
+
 export default reduxForm({
   form: "signUp",
 })(SignUp);

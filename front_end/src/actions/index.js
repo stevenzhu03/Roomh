@@ -7,21 +7,21 @@ export const fetchUsers = () => dispatch => {
     })
 }
 
-export const createUser = () => dispatch => {
-    fetch('http://localhost:3000/signup', {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          username: 
-          password: 
-          email: 
-        })
-      })
-      .then(resp => resp.json())
-}
+// export const createUser = () => dispatch => {
+//     fetch('http://localhost:3000/signup', {
+//         method: 'POST',
+//         headers: { 
+//           'Content-Type': 'application/json',
+//           'Accept': 'application/json'
+//         },
+//         body: JSON.stringify({
+//           username: 
+//           password: 
+//           email: 
+//         })
+//       })
+//       .then(resp => resp.json())
+// }
 
 
 
