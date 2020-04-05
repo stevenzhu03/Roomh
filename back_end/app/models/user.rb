@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+    has_secure_password
+    validates :username, uniqueness: { case_sensitive: false }
+    validates :email, uniqueness: { case_sensitive: false }
+
     has_many :matches
     has_many :inverse_matches, :class_name => "Match", :foreign_key => "matcher_id"
 

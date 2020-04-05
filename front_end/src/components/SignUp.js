@@ -3,23 +3,60 @@ import {reduxForm, Field} from 'redux-form'
  
 // const renderInput = props => <Input/>
 
-const SignUp = (props) => {
-  
+class SignUp extends React.Component {
 
+  renderInput(formProps) {
+    console.log(formProps)
+    return (
+      <div className="field">
+        <input {...formProps.input} placeholder={formProps.label} />
+        <div>{formProps.meta.error}</div>
+      </div>
+    )
+  }
+
+  onSubmit = formValues => {
+    console.log(formValues)
+  }
+
+  render() {
     return (
             <div className="signup-form-container">
-                <form className="signup-form">
-                  <Field name="username"/>
-                  <input type="text"/>
+                <form className="signup-form" onSubmit={this.props.handleSubmit(this.onSubmit)}>
+                  <Field name="username" component={this.renderInput} label="Username" />
+                  <Field name="email" component={this.renderInput} label="Email" />
+                  <Field name="password" component={this.renderInput} label="Password" />
+                  <Field name="passwordConfirmation" component={this.renderInput} label="Password Confirmation" />
+                  <button type="submit" >Submit</button>
                 </form>
             </div>
-    );
+    )
+  }
   
 }
 
+const validate = formValues => {
+  const errors = {}
+
+  if(!formValues.username) {
+    errors.username = "You must enter a username"
+  }
+  if(!formValues.email) {
+    errors.email = "You must enter a email"
+  }
+  if(!formValues.password) {
+    errors.password = "You must enter a password"
+  }
+  if(!formValues.passwordConfirmation) {
+    errors.passwordConfirmation = "You must confirm password"
+  }
+
+  return errors
+}
 
 export default reduxForm({
   form: "signUp",
+  validate
 })(SignUp);
 
 
