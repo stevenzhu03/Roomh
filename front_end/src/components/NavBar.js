@@ -13,7 +13,7 @@ const NavBar = () => {
 
                 <div className="navlinks">
                 <NavLink to="/">Home</NavLink>
-                {this.props.currentUser ? 
+                {/* {this.props.currentUser ? 
                 <span className="user">
                     Welcome!
                     <Link to="/profile">
@@ -22,11 +22,11 @@ const NavBar = () => {
                     <button onClick={this.props.logout}> Log Out </button>
                 </span>
                 : 
-                <span className="login-signup">
+                <span className="login-signup"> */}
                 <NavLink to="/login">Login</NavLink>
                 <NavLink to="/signup">Sign Up</NavLink>
-                </span>
-                }
+                {/* </span> */}
+                {/* } */}
                 </div>
                 
             </div>

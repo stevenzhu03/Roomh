@@ -1,9 +1,11 @@
 
 export const fetchUsers = () => dispatch => {
-    fetch("SOME API")
+    fetch('https://jsonplaceholder.typicode.com/users')
     .then(resp => resp.json())
-    .then(data => {
-        dispatch({type: "FETCH DATA", payload: data})
+    .then(users => {
+        dispatch({type: "FETCH_USERS", payload: users})
     })
 }
+
+
 
