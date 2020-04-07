@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter as Router, Route} from 'react-router-dom'
+import history from './history'
+import { Router, Route} from 'react-router-dom'
 
 import { createStore,applyMiddleware,compose } from 'redux'
 import thunk from 'redux-thunk'
@@ -15,7 +16,7 @@ const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
+    <Router history={history}>
     <Route path= "/" component={App} />
     </Router>
   </Provider>,

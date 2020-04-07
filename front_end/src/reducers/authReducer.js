@@ -4,11 +4,14 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case 'SIGN_IN':
+        case 'SET_CURRENT_USER':
+            return {...state, currentUser: action.payload.user}
+        case 'AUTO_LOGIN':
             return {...state, currentUser: action.payload}
-        case 'SIGN_OUT':
+        case 'LOG_OUT':
             return {...state, currentUser: null}
         default:
             return state
     }
 }
+

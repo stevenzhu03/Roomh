@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         )
 
         if user.save
-            token = encode_tooken(user.id)
+            token = encode_token(user.id)
             render json: {user: user, token: token}
         else
             render json: {errors: user.errors.full_messages}

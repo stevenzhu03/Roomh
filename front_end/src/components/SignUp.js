@@ -1,35 +1,49 @@
 import React from 'react';
-import {reduxForm, Field} from 'redux-form'
- 
-// const renderInput = props => <Input/>
+import { reduxForm, Field } from 'redux-form'
+import { connect } from 'react-redux'
+import { createUser } from '../actions'
 
 class SignUp extends React.Component {
 
-  renderInput(formProps) {
-    console.log(formProps)
+  renderError = meta => {
+    if (meta.touched && meta.error) {
+      return <div>{meta.error}</div>
+    }
+  }
+
+  renderInput = formProps => {
     return (
       <div className="field">
-        <input {...formProps.input} placeholder={formProps.label} />
-        <div>{formProps.meta.error}</div>
+        {formProps.icon}
+        <input {...formProps.input} placeholder={formProps.label} type={formProps.type} />
+        {this.renderError(formProps.meta)}
       </div>
     )
   }
 
   onSubmit = formValues => {
-    console.log(formValues)
+    if(formValues.password === formValues.passwordConfirmation) {
+      this.props.createUser(formValues)
+    } else {
+          alert("Passwords don't match")
+    }
   }
 
   render() {
     return (
+          <div className="signup-page">
             <div className="signup-form-container">
+              <h1>Sign Up</h1>
+              <p>Find the perfect roommate</p>
                 <form className="signup-form" onSubmit={this.props.handleSubmit(this.onSubmit)}>
-                  <Field name="username" component={this.renderInput} label="Username" />
-                  <Field name="email" component={this.renderInput} label="Email" />
-                  <Field name="password" component={this.renderInput} label="Password" />
-                  <Field name="passwordConfirmation" component={this.renderInput} label="Password Confirmation" />
-                  <button type="submit" >Submit</button>
+                  <Field name="username" type="text" component={this.renderInput} label="Username"/>
+                  <Field name="email" type="text" component={this.renderInput} label="Email" />
+                  <Field name="password" type="password" component={this.renderInput} label="Password" />
+                  <Field name="passwordConfirmation" type="password" component={this.renderInput} label="Password Confirmation" />
+                  <button className="signup-btn" type="submit" >Sign Up</button>
                 </form>
             </div>
+          </div>
     )
   }
   
@@ -54,52 +68,9 @@ const validate = formValues => {
   return errors
 }
 
-export default reduxForm({
+const formWrapped = reduxForm({
   form: "signUp",
   validate
 })(SignUp);
 
-
-
-
-          // state = { 
-          //   username: "",
-          //   password: "",
-          //   age: null,
-          //   passwordConfirmation: ""
-          // }
-        
-          // handleChange = (event) => {
-          //   this.setState({
-          //     [event.target.name]: event.target.value
-          //   })
-          // }
-        
-          // handleSubmit = (e) => {
-          //   e.preventDefault()
-          //   if (this.state.password === this.state.passwordConfirmation){
-          //     fetch('http://localhost:3000/signup', {
-          //       method: 'POST',
-          //       headers: { 
-          //         'Content-Type': 'application/json',
-          //         'Accept': 'application/json'
-          //       },
-          //       body: JSON.stringify({
-          //         username: this.state.username,
-          //         password: this.state.password,
-          //         age: parseInt(this.state.age)
-          //       })
-          //     })
-              // .then(resp => resp.json())
-          //     .then(response => {
-          //       if (response.errors) {
-          //         alert(response.errors)
-          //       } else {
-          //         this.props.setUser(response)
-          //       }
-          //     }
-          //     )
-          //   } else {
-          //     alert("Passwords don't match")
-          //   }
-          // }
+export default connect(null, { createUser } )(formWrapped)

@@ -1,26 +1,43 @@
 import React from 'react';
 import NavBar from './components/NavBar'
 import { Route } from 'react-router-dom';
+import { connect } from 'react-redux'
 import Login from './components/Login'
 import SignUp from './components/SignUp';
-import UserContainer from './components/UserContainer';
+import FindRoomate from './components/FindRoomate';
+
+import { autoLogin } from './actions'
 
 import './App.css';
 
 class App extends React.Component {
 
+  componentDidMount() {
+    const token = localStorage.token
+    console.log(token)
+
+    if (token) {
+      this.props.autoLogin(token)
+    }
+    else {
+      this.props.history.push(`/login`)
+    }
+  }
+
   render() {
     return(
       <div className="app">
         <NavBar/>
-        <Route exact path="/login" render={() => <Login />}/>
-        <Route exact path="/signup" render={() => <SignUp />}/>
-        <Route exact path="/users" render={() => <UserContainer />}/>
+        <Route exact path="/login" render={() => <Login history={this.props.history} />}/>
+        <Route exact path="/signup" render={() => <SignUp history={this.props.history} />}/>
+        <Route exact path="/findroomate" render={() => <FindRoomate />}/>
       </div>
     )
   }
 }
 
-export default App;
+
+
+export default connect(null, { autoLogin })(App);
 
 
