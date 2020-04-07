@@ -5,3 +5,40 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+30.times do 
+    User.create(
+        username: Faker::Internet.unique.user_name, 
+        email: Faker::Internet.email,
+        name: Faker::Name.male_first_name + ' ' + Faker::Name.last_name,
+        age: rand(18..45),
+        summary: Faker::TvShows::RickAndMorty.quote, 
+        work_info: Faker::Company.industry,
+        sex: 'male',
+        budget: `$#{rand(23..45)*50}`,
+        move_in_date: Faker::Date.between(from: 1.day.from_now, to: 1.year.from_now),
+        # cleaning: ['Every Few Days', 'Once a Week', 'Every Few Weeks', 'Once a Month'].sample,
+        # guests: ['Fine With Having Guests', 'Not Fine with Guests'].sample,
+        # schedule: ['I Sleep Early', 'I Sleep Late', 'I Work Late'].sample,
+        # pets: ['I Have a Dog', 'I Have a Cat', 'I Have a Snake', 'I Have a Lizard'].sample
+    )
+end
+
+30.times do 
+    User.create(
+        username: Faker::Internet.unique.user_name, 
+        email: Faker::Internet.email,
+        name: Faker::Name.female_first_name + ' ' + Faker::Name.last_name,
+        age: rand(18..45),
+        summary: Faker::TvShows::MichaelScott.quote, 
+        work_info: Faker::Company.industry,
+        sex: 'female',
+        budget: `$#{rand(23..45)*50}`,
+        # move_in_date: Faker::Date.between(from: 1.day.from_now, to: 1.year.from_now),
+        # cleaning: ['Every Few Days', 'Once a Week', 'Every Few Weeks', 'Once a Month'].sample,
+        # guests: ['Fine With Having Guests', 'Not Fine with Guests'].sample,
+        # schedule: ['I Sleep Early', 'I Sleep Late', 'I Work Late'].sample,
+        # pets: ['I Have a Dog', 'I Have a Cat', 'I Have a Snake', 'I Have a Lizard'].sample
+    )
+end
