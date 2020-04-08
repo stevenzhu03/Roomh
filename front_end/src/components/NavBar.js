@@ -16,11 +16,12 @@ const NavBar = (props) => {
             </NavLink>
 
             <div className="navlinks">
-                {props.login.currentUser ? 
+                {props.currentUser ? 
                     <span className="user">
+                        <Link to="/find_roommate">Find a Roommate</Link>
                         Welcome!
-                        <Link to="/profile">
-                        {props.login.currentUser.username}
+                        <Link to="/user_profile">
+                        {props.currentUser.username}
                         </Link>
                         <button onClick={props.logOut}> Log Out </button>
                     </span>
@@ -37,7 +38,7 @@ const NavBar = (props) => {
 }
 
 const mapStateToProps = state => {
-    return {login: state.auth}
+    return {currentUser: state.auth.currentUser}
 }
 
 export default connect(mapStateToProps, { logOut })(NavBar)

@@ -1,25 +1,33 @@
 import React from 'react';
+import UserCard from './UserCard'
 import { fetchUsers } from '../actions'
 import { connect } from 'react-redux';
 
-class UserContainer extends React.Component {
+class FindRoomate extends React.Component {
 
+    
     componentDidMount () {
-        this.props.fetchUsers()
+        console.log(this.props.currentUser)
+        this.props.fetchUsers(this.props.currentUser)
     }
-
+    
     render () {
         return (
-            <div className="users-list">
-                {this.props.users.map(user => <div>{user.name} {user.email}</div>)}
+            // !this.props.currentUser ? <div>LOADING...</div> : (    
+            <div className="ui grid container">
+                {this.props.users.map(user => <UserCard key={user.id} {...user} />)}
             </div>
+            
         ) 
     }
 
 }
 
 const mapStateToProps = state => {
-    return {users: state.users}
+    return {
+        users: state.users.users,
+        currentUser: state.auth.currentUser
+    }
 }
 
-export default connect(mapStateToProps, {fetchUsers})(UserContainer)
+export default connect(mapStateToProps, {fetchUsers})(FindRoomate)

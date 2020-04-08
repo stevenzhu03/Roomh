@@ -1,10 +1,13 @@
-
 import history from '../history'
 
 export const fetchUsers = () => dispatch => {
-    fetch('https://jsonplaceholder.typicode.com/users')
+    fetch('http://localhost:3000/users')
     .then(resp => resp.json())
     .then(users => {
+        // returns an array of all users
+        // console.log(currentUser.id)
+        // let filteredUsers = users.filter(user => user.id !== currentUser.id) 
+        // console.log(filteredUsers) 
         dispatch({type: "FETCH_USERS", payload: users})
     })
 }
@@ -72,7 +75,6 @@ export const autoLogin = (token) => dispatch => {
           history.push('/')
         } else {
             dispatch({type: "AUTO_LOGIN", payload: response})
-            history.push('/findroomate')
         }
       })
 }

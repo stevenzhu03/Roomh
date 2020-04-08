@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import Login from './components/Login'
 import SignUp from './components/SignUp';
 import FindRoomate from './components/FindRoomate';
+import UserProfile from './components/UserProfile'
 
 import { autoLogin } from './actions'
 
@@ -14,7 +15,6 @@ class App extends React.Component {
 
   componentDidMount() {
     const token = localStorage.token
-    console.log(token)
 
     if (token) {
       this.props.autoLogin(token)
@@ -30,7 +30,8 @@ class App extends React.Component {
         <NavBar/>
         <Route exact path="/login" render={() => <Login history={this.props.history} />}/>
         <Route exact path="/signup" render={() => <SignUp history={this.props.history} />}/>
-        <Route exact path="/findroomate" render={() => <FindRoomate />}/>
+        <Route exact path="/find_roommate" render={() => <FindRoomate />}/>
+        <Route exact path="/user_profile" render={() => <UserProfile />}/>
       </div>
     )
   }
