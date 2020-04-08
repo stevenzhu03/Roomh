@@ -14,11 +14,32 @@ class UserProfile extends React.Component {
                         <div className="content user-summary">
                             <h1>{this.props.currentUser.name}</h1>
                             <p>{this.props.currentUser.summary}</p>
+                            <p>Work Info: {this.props.currentUser.work_info}</p>
                         </div>
                     </div>
                 </div>
 
-
+                <div className="ui relaxed list user-additional-info">
+                    <div className="item">
+                        <div className="content">
+                            <a className="header">Budget</a>
+                            <div className="description">{this.props.currentUser.budget}</div>
+                        </div>
+                    </div>
+                    <div className="item">
+                        <div className="content">
+                            <a className="header">Cleaning</a>
+                            <div className="description">{this.props.currentUser.cleaning}</div>
+                        </div>
+                    </div>
+                    <div className="item">
+                        <div className="content">
+                            <a className="header">Guests</a>
+                            <div className="description">{this.props.currentUser.guests}</div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         )
     }
