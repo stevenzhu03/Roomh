@@ -1,8 +1,13 @@
 class MatchesController < ApplicationController
 
     def create
-            # params for user and requester
-            # status will be uncomfirmed
+        match = Match.create(
+            user_id: params[:user_id],
+            matcher_id: params[:matcher_id],
+            confirmed: false
+        )
+
+        render json: match
     end
 
 end
