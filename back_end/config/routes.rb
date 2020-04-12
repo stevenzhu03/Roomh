@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   get '/auto_login', to: 'auth#auto_login'
 
   post '/match/create', to: 'matches#create'
-
+  post '/match/confirm', to: 'matches#confirm'
+  
 end

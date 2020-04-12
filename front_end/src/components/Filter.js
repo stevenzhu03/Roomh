@@ -1,11 +1,3 @@
-
-
 const Filter = (props) => {
-
-    return (
-        <div className="filter">
-            
-        </div>
-    )
-    
-}
+  return <div className="filter"></div>;
+};

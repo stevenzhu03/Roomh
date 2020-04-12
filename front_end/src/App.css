@@ -7,6 +7,14 @@
   box-sizing: border-box;
 }
 
+/* Home Screen Styling */
+.home-page {
+  display: flex;
+  height: 87vh;
+  overflow: hidden;
+  background-image: url('https://images.pexels.com/photos/1918291/pexels-photo-1918291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  background-size: 100% 100%;
+}
 
 /* NavBard Styling */
 
@@ -39,6 +47,7 @@
 .navlinks a {
   padding: 20px;
   text-decoration: none;
+  font-size: 20px;
 }
 
 /* Sign Up Form Styling */
@@ -145,5 +154,15 @@
 .user-profile {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* align-items: center; */
+}
+
+.user-card {
+  display: flex;
+}
+
+.user-match-feed {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
