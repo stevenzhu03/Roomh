@@ -44,3 +44,5 @@ gem 'faker'
 gem 'jwt'
 gem 'active_model_serializers'
 
+gem 'image_processing', '~> 1.2'
+

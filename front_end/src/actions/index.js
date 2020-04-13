@@ -96,7 +96,7 @@ export const fetchUsers = () => (dispatch) => {
 
 export const setSelectedUser = (selectedUser) => (dispatch) => {
   dispatch({ type: "SET_SELECTED_USER", payload: selectedUser });
-  history.push(`/matcher_profile`);
+  history.push(`/user/${selectedUser.username}`);
 };
 
 //Create a Match

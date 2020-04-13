@@ -24,6 +24,7 @@ class UserProfile extends React.Component {
               <h1>{this.props.currentUser.info.name}</h1>
               <p>{this.props.currentUser.info.summary}</p>
               <p>Work Info: {this.props.currentUser.info.work_info}</p>
+              <button>Edit Profile</button>
             </div>
           </div>
         </div>

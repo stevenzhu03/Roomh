@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
     has_many :matchs
     has_many :inverse_matches, :class_name => "Match", :foreign_key => "matcher_id"
+    has_many_attached :images
 
     def matches
         matchers_array = matchs.map{|match| match.matcher if match.confirmed}

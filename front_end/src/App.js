@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import FindRoomate from "./components/FindRoomate";
 import UserProfile from "./components/UserProfile";
+import EditProfile from "./components/EditProfile";
 import MatcherProfile from "./components/MatcherProfile";
 
 import { autoLogin } from "./actions";
@@ -29,23 +30,12 @@ class App extends React.Component {
       <div className="app">
         <NavBar />
         <Route exact path="/" render={() => <Home />} />
-        <Route
-          exact
-          path="/login"
-          render={() => <Login history={this.props.history} />}
-        />
-        <Route
-          exact
-          path="/signup"
-          render={() => <SignUp history={this.props.history} />}
-        />
+        <Route exact path="/login" render={() => <Login history={this.props.history} />} />
+        <Route exact path="/signup" render={() => <SignUp history={this.props.history} />} />
         <Route exact path="/find_roommate" render={() => <FindRoomate />} />
         <Route exact path="/user_profile" render={() => <UserProfile />} />
-        <Route
-          exact
-          path="/matcher_profile"
-          render={() => <MatcherProfile />}
-        />
+        <Route exact path="/user_profile/edit" render={() => <EditProfile /> }
+        <Route exact path="/user/:username" render={() => <MatcherProfile />} />
       </div>
     );
   }
