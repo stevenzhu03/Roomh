@@ -39,8 +39,6 @@ class UsersController < ApplicationController
     end
 
     def upload_img
-        byebug
-
         user = User.find(params[:id])
         user.images.attach(params[:image])
         user.save

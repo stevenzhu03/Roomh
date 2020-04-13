@@ -13,8 +13,11 @@ Rails.application.routes.draw do
   post '/match/create', to: 'matches#create'
   post '/match/confirm', to: 'matches#confirm'
 
-  # Real Time Chat Messaging
+  # Real Time Chat Messaging Routes
   resources :chat_rooms, only: [:index, :create, :show]
   resources :messages, only: [:create]
   
+
+  mount ActionCable.server => '/cable'
+
 end

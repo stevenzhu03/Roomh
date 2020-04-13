@@ -16,11 +16,7 @@ class UserProfile extends React.Component {
       <div className="user-profile">
         <div className="ui items user-card">
           <div className="item">
-            <img
-              className="image"
-              src="https://cdn2.iconfinder.com/data/icons/avatar-profile/449/avatar_user_default_contact_profile_male-512.png"
-              alt="user-profile"
-            />
+            {this.props.currentUser.images.map(image => <img className="image" src={image} />)}
             <div className="content user-summary">
               <h1>{this.props.currentUser.info.name}</h1>
               <p>{this.props.currentUser.info.summary}</p>

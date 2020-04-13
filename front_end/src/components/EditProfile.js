@@ -1,28 +1,33 @@
 import React from "react";
 import { connect } from "react-redux";
 import { confirmMatch } from "../actions";
+import ImageUploader from "./ImageUploader";
 
 class EditProfile extends React.Component {
   state = {
       name: this.props.currentUser.info.name, 
       summary: this.props.currentUser.info.name,
+      image: null
   };
 
-  clickHandler = (user_id, matcher_id) => {
-    this.props.confirmMatch(user_id, matcher_id);
-  };
 
-  changeHandler = (event) => {
+
+  clickHandler = (event) => {
+    
     let formdata = new FormData();
-    formdata.append("image", event.target.files[0])
+    formdata.append("image", this.state.image)
 
-    fetch(`http://localhost:3000/user/${}/upload_img`, {
+    fetch(`http://localhost:3000/user/${this.props.currentUser.info.id}/upload_img`, {
         method: "POST",
-        headers: {
-            'Content-Type': 'multipart/form-data',
-        },
+        // headers: {
+        //     'Content-Type': 'multipart/form-data',
+        // },
         body: formdata
     })
+  }
+
+  selectImage = (image) => {
+    this.setState({image})
   }
 
   render() {
@@ -30,7 +35,8 @@ class EditProfile extends React.Component {
       <div>Loading ...</div>
     ) : (
       <div>
-        <input type="file" name="ui file" onChange= {this.changeHandler} />
+        <ImageUploader selectImage={this.selectImage} />
+        <button onClick={this.clickHandler}>Submit</button>
       </div>
     );
   }
