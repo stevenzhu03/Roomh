@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { confirmMatch } from '../actions'
+import { Link } from 'react-router-dom'
 
 class UserProfile extends React.Component {
 
@@ -24,7 +25,7 @@ class UserProfile extends React.Component {
               <h1>{this.props.currentUser.info.name}</h1>
               <p>{this.props.currentUser.info.summary}</p>
               <p>Work Info: {this.props.currentUser.info.work_info}</p>
-              <button>Edit Profile</button>
+              <Link to="/user_profile/edit"><button className="ui blue button">Edit Profile</button></Link>
             </div>
           </div>
         </div>

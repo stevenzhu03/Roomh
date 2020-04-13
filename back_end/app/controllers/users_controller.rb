@@ -38,6 +38,11 @@ class UsersController < ApplicationController
         user.destroy
     end
 
+    def upload_image
+        byebug
+
+    end
+
     private
     def user_params
         params.require(:user).permit(:username, :name, :email)

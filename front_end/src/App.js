@@ -34,7 +34,7 @@ class App extends React.Component {
         <Route exact path="/signup" render={() => <SignUp history={this.props.history} />} />
         <Route exact path="/find_roommate" render={() => <FindRoomate />} />
         <Route exact path="/user_profile" render={() => <UserProfile />} />
-        <Route exact path="/user_profile/edit" render={() => <EditProfile /> }
+        <Route exact path="/user_profile/edit" render={() => <EditProfile />} />
         <Route exact path="/user/:username" render={() => <MatcherProfile />} />
       </div>
     );
