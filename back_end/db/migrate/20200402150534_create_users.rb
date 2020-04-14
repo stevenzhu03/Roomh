@@ -8,8 +8,8 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.integer :age
       t.string :summary
       t.string :work_info
-      t.string :sex
-      t.string :budget
+      t.string :gender
+      t.integer :budget
       t.string :move_in_date
       t.string :cleaning
       t.string :guests

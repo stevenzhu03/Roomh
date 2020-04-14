@@ -14,13 +14,13 @@ User.create(
     age: 25,
     summary: Faker::TvShows::MichaelScott.quote, 
     work_info: 'Engineer',
-    sex: 'male',
-    budget: "$#{(rand(23..45)*50).to_s}",
+    gender: 'male',
+    budget: rand(23..45)*50,
     move_in_date: Faker::Date.between(from: 1.day.from_now, to: 1.year.from_now),
     cleaning: 'Every Few Days',
     guests: 'Fine With Having Guests',
     schedule: 'I Sleep Early',
-    pets: 'I Have No Pets'
+    pets: 'No Pet, But Fine Living With Them'
 )
 
 30.times do 
@@ -32,13 +32,13 @@ User.create(
         age: rand(18..45),
         summary: Faker::TvShows::RickAndMorty.quote, 
         work_info: Faker::Company.industry,
-        sex: 'male',
-        budget: "$#{(rand(23..45)*50).to_s}",
+        gender: 'male',
+        budget: rand(23..45)*50,
         move_in_date: Faker::Date.between(from: 1.day.from_now, to: 1.year.from_now),
         cleaning: ['Every Few Days', 'Once a Week', 'Every Few Weeks', 'Once a Month'].sample,
         guests: ['Fine With Having Guests', 'Not Fine with Guests'].sample,
         schedule: ['I Sleep Early', 'I Sleep Late', 'I Work Late', 'In Bed By 12'].sample,
-        pets: ['I Have a Dog', 'I Have a Cat', 'I Have a Snake', 'I Have a Lizard', 'I Have No Pets'].sample
+        pets: ['I Do Have a Pet(s)', 'I Have No Pets', 'No Pet, But Fine Living With Them', "No Pets, Please"].sample
     )
 end
 
@@ -51,12 +51,12 @@ end
         age: rand(18..34),
         summary: Faker::TvShows::MichaelScott.quote,
         work_info: Faker::Company.industry,
-        sex: 'female',
-        budget: "$#{(rand(23..45)*50).to_s}",
+        gender: 'female',
+        budget: rand(23..45)*50,
         move_in_date: Faker::Date.between(from: 1.day.from_now, to: 1.year.from_now),
         cleaning: ['Every Few Days', 'Once a Week', 'Every Few Weeks', 'Once a Month'].sample,
         guests: ['Fine With Having Guests', 'Not Fine with Guests'].sample,
         schedule: ['I Sleep Early', 'I Sleep Late', 'I Work Late', 'In Bed By 12'].sample,
-        pets: ['I Have a Dog', 'I Have a Cat', 'I Have a Snake', 'I Have a Lizard', 'I Have No Pets'].sample
+        pets: ['I Do Have a Pet(s)', 'I Have No Pets', 'No Pet, But Fine Living With Them', "No Pets, Please"].sample
     )
 end
