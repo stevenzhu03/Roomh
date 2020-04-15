@@ -30,7 +30,7 @@ export const createUser = (formValues) => (dispatch) => {
 //Update a User
 
 export const updateUser = (updatedUser) => (dispatch) => {
-  dispatch({type: "UPDATE_USER", payload: updateUser})
+  dispatch({type: "UPDATE_USER", payload: updatedUser})
   history.push("/user_profile")
 }
 
