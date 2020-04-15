@@ -122,6 +122,9 @@ class UserProfile extends React.Component {
               </div>
 
               <div className="recent-matches">
+              <Link to="/matches">
+              <button className="ui blue button">View All Matches</button>
+              </Link>
                 {this.props.currentUser.matches
                   .slice(Math.max(this.props.currentUser.matches.length - 3, 0))
                   .map((user) => (
