@@ -137,5 +137,5 @@ export const confirmMatch = (user_id, matcher_id) => (dispatch) => {
     }),
   })
   .then(resp => resp.json())
-  .then(response => console.log(response))
+  .then(response => dispatch({type:"CONFIRM_MATCH", payload: response}))
 }

@@ -309,4 +309,34 @@
 
 .match-page {
   display: flex;
+  padding: 50px;
+}
+
+.match-pending-requests {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+}
+
+.match-requests {
+  display: flex;
+  flex-direction: column;
+  height: 38vh;
+  background-color: brown;
+}
+
+.match-pending {
+  display: flex;
+  flex-direction: column;
+  height: 38vh;
+
+  background-color: cornflowerblue;
+}
+
+.match-accepted {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  height: 76vh;
+  background-color: cyan;
 }

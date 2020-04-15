@@ -5,9 +5,6 @@ import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 
 class UserProfile extends React.Component {
-  clickHandler = (user_id, matcher_id) => {
-    this.props.confirmMatch(user_id, matcher_id);
-  };
 
   render() {
     return !this.props.currentUser ? (

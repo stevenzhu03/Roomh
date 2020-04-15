@@ -3,6 +3,10 @@ import { connect } from "react-redux";
 import { confirmMatch } from "../actions";
 
 class MatchPage extends React.Component {
+  clickHandler = (user_id, matcher_id) => {
+    this.props.confirmMatch(user_id, matcher_id);
+  };
+
   render() {
     return !this.props.currentUser ? (
       <div>Loading ...</div>
