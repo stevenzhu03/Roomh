@@ -14,8 +14,19 @@ export default (state = initialState, action) => {
       return {
         ...state,
         currentUser: {
-          info: { ...state.currentUser.info },
-          pending_matches: [...state.currentUser.pending_matches, action.payload],
+          ...state.currentUser,
+          pending_matches: [
+            ...state.currentUser.pending_matches,
+            action.payload,
+          ],
+        },
+      };
+    case "UPDATE_USER":
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          info: action.payload,
         },
       };
     default:
