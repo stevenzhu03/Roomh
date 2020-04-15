@@ -21,7 +21,7 @@ class UserCard extends React.Component {
         </div>
         <div className="content">
           <div className="header">{this.props.name}</div>
-          <div className="meta">Budget: {this.props.budget}</div>
+          <div className="meta">Budget: ${this.props.budget}</div>
           <div className="description">{this.props.summary}</div>
         </div>
       </div>

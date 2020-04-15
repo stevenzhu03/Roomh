@@ -7,13 +7,13 @@ import { connect } from "react-redux";
 class FindRoomate extends React.Component {
 
   state = {
-    sex: "",
+    gender: "",
     budget: null,
     age: null,
   }
 
-  handleGender = (value) => {
-    this.setState({sex: value})
+  handleFilter = (property, value) => {
+    this.setState({[property]: value})
   }
 
   componentDidMount() {
@@ -21,12 +21,18 @@ class FindRoomate extends React.Component {
   }
 
   filterUsers = (users) => {
-    if(this.state.sex){
-      const filterSex = users.filter(user => user.sex === this.state.sex)
-      return filterSex
+    let filteredUsers = users
+    if(this.state.gender){
+      filteredUsers = filteredUsers.filter(user => user.gender === this.state.gender)
+    } 
+    if(this.state.budget){
+      filteredUsers = filteredUsers.filter(user => user.budget <= this.state.budget)
+    } 
+    if(this.state.age){
+      filteredUsers = filteredUsers.filter(user => user.age <= this.state.age)
     }
 
-    return users
+    return filteredUsers
   }
 
   render() {
@@ -34,8 +40,8 @@ class FindRoomate extends React.Component {
 
     return (
       this.props.currentUser && (
-        <div className="find-roommate">
-          <Filter handleGender={this.handleGender}/>
+        <div>
+          <Filter handleFilter={this.handleFilter} />
           <div className="ui four stackable cards">
             {filteredUsers.filter(user => user.id !== this.props.currentUser.info.id).map((user) => (
               <UserCard key={user.id} {...user} />

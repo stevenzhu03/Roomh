@@ -153,16 +153,155 @@
 
 .user-profile {
   display: flex;
-  flex-direction: column;
   /* align-items: center; */
 }
 
-.user-card {
+.user-banner {
+  display: flex;
+  flex-direction: column;
+  height: 87vh;
+  width: 20vw;
+  padding: 25px;
+  background-color: black;
+}
+
+.user-name-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 45vh;
+  background-color: chartreuse;
+}
+
+.user-name-image h1 {
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  height: 42vh;
+  background-color: crimson;
+}
+
+.user-summary {
+  height: 30vh;
+}
+
+.user-work-info {
+  height: 15vh;
+}
+
+.user-additional-info {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  height: 87vh;
+  width: 80vw;
+  background-color: blue;
+}
+
+.user-photos-container {
+  display: flex;
+  flex-direction: column;
+  height: 35vh;
+  background-color: darkgreen;
+}
+
+.user-photos img {
+  height: 260px;
+  width: 200px;
+}
+
+.user-preferences-match {
+  display: flex;
+  height: 47vh;
+  background-color: darksalmon;
+}
+
+.user-preferences {
+  display: flex;
+  flex-direction: column;
+  height: 47vh;
+}
+
+.user-roommate-preferences {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 40vw;
+  height: 24vh;
+  background-color: darkviolet;
+}
+
+.user-roommate-preferences-columns {
   display: flex;
 }
 
-.user-match-feed {
+.user-roommate-preferences-column-1 {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
+  width: 20vw;
 }
+
+.user-roommate-preferences-column-2 {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+
+}
+
+.user-moving-preferences {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 40vw;
+  height: 23vh;
+  background-color: fuchsia;
+}
+
+.user-moving-preferences-columns {
+  display: flex;
+}
+
+.user-moving-preferences-column-1 {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+
+}
+
+.user-moving-preferences-column-2 {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+}
+
+.user-recent-match {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 40vw;
+}
+
+/* Edit Profile Styling */
+
+.user-edit-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.edit-user-name-work {
+  display: flex;
+}
+
