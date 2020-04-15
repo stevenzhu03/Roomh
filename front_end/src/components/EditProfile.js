@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { updateUser } from "../actions"
 import TextField from "@material-ui/core/TextField";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -50,6 +51,32 @@ class EditProfile extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+    fetch(`http://localhost:3000/users/${this.props.currentUser.info.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        name: this.state.name,
+        email: this.state.email,
+        work_info: this.state.work_info,
+        summary: this.state.summary,
+        cleaning: this.state.cleaning,
+        guests: this.state.guests,
+        schedule: this.state.schedule,
+        pets: this.state.pets,
+        budget: this.state.budget,
+      }),
+    })
+      .then((resp) => resp.json())
+      .then((user) => {
+        this.props.updateUser(user)
+      });
+  };
+
   clickHandler = (event) => {
     let formdata = new FormData();
     formdata.append("image", this.state.image);
@@ -74,6 +101,7 @@ class EditProfile extends React.Component {
       <div className="user-edit-form">
         <form>
           <ImageUploader selectImage={this.selectImage} />
+          <button onClick={this.clickHandler}>Submit</button>
 
           <div className="edit-user-info">
             <h1> Edit User Information </h1>
@@ -206,7 +234,7 @@ class EditProfile extends React.Component {
             />
           </div>
 
-          <button onClick={this.clickHandler}>Submit</button>
+          <button type="submit" onClick={this.handleFormSubmit}>Submit</button>
         </form>
       </div>
     );
@@ -217,4 +245,4 @@ const mapStateToProps = (state) => {
   return { currentUser: state.auth.currentUser };
 };
 
-export default connect(mapStateToProps)(EditProfile);
+export default connect(mapStateToProps, { updateUser })(EditProfile);

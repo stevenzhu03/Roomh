@@ -27,6 +27,13 @@ export const createUser = (formValues) => (dispatch) => {
     });
 };
 
+//Update a User
+
+export const updateUser = (updatedUser) => (dispatch) => {
+  dispatch({type: "UPDATE_USER", payload: updateUser})
+  history.push("/user_profile")
+}
+
 //Log In
 
 export const login = (formValues) => (dispatch) => {
