@@ -1,11 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { confirmMatch } from "../actions";
+import MatchRequestDiv from "./MatchRequestDiv"
 
 class MatchPage extends React.Component {
   clickHandler = (user_id, matcher_id) => {
     this.props.confirmMatch(user_id, matcher_id);
   };
+
+
 
   render() {
     return !this.props.currentUser ? (
@@ -16,17 +19,7 @@ class MatchPage extends React.Component {
           <div className="match-requests">
             <h1 className="ui header">Match Requests</h1>
             {this.props.currentUser.match_requests.map((user) => (
-              <div className="event">
-                <span>{user.name}</span>
-                <button
-                  onClick={() =>
-                    this.clickHandler(this.props.currentUser.info.id, user.id)
-                  }
-                  className="ui small button"
-                >
-                  Accept
-                </button>
-              </div>
+              <MatchRequestDiv clickHandler={this.clickHandler} user_id={this.props.currentUser.info.id} matcher={user}/>
             ))}
           </div>
 

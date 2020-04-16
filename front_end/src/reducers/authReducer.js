@@ -21,6 +21,18 @@ export default (state = initialState, action) => {
           ],
         },
       };
+    case "CONFIRM_MATCH":
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          matches: [...state.currentUser.matches, action.payload],
+          match_requests:
+            state.currentUser.match_requests.filter(
+              (request) => request.id !== action.payload.id
+            ),
+        },
+      };
     case "UPDATE_USER":
       return {
         ...state,

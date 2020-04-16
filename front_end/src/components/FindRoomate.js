@@ -40,7 +40,7 @@ class FindRoomate extends React.Component {
 
     return (
       this.props.currentUser && (
-        <div>
+        <div className="find-roommate">
           <Filter handleFilter={this.handleFilter} />
           <div className="ui four stackable cards">
             {filteredUsers.filter(user => user.id !== this.props.currentUser.info.id).map((user) => (

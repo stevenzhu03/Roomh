@@ -162,7 +162,6 @@
   height: 87vh;
   width: 20vw;
   padding: 25px;
-  background-color: black;
 }
 
 .user-name-image {
@@ -171,12 +170,13 @@
   justify-content: center;
   align-items: center;
   height: 45vh;
-  background-color: chartreuse;
+  
 }
 
 .user-name-image h1 {
   margin: 0;
   padding-bottom: 5px;
+  
 }
 
 .user-info {
@@ -184,15 +184,25 @@
   flex-direction: column;
   padding: 20px;
   height: 42vh;
-  background-color: crimson;
+  
 }
 
 .user-summary {
+  border-top: 1.4px solid lightgray;
   height: 30vh;
 }
 
+.user-summary h1 {
+  margin-top: 10px;
+}
+
 .user-work-info {
+  border-top: 1.4px solid lightgray;
   height: 15vh;
+}
+
+.user-work-info h1 {
+  margin-top: 10px;
 }
 
 .user-additional-info {
@@ -201,14 +211,21 @@
   padding: 20px;
   height: 87vh;
   width: 80vw;
-  background-color: blue;
+  border-left: 1.4px solid lightgray;
 }
 
 .user-photos-container {
   display: flex;
   flex-direction: column;
   height: 35vh;
-  background-color: darkgreen;
+  border-bottom: 1.4px solid lightgray;
+  padding: 5px 10px 5px 10px
+}
+
+.user-photos-heading h1 {
+  font-family: 'Overpass', sans-serif;
+  font-size: 25px;
+  margin-bottom: 10px;
 }
 
 .user-photos img {
@@ -219,7 +236,6 @@
 .user-preferences-match {
   display: flex;
   height: 47vh;
-  background-color: darksalmon;
 }
 
 .user-preferences {
@@ -233,8 +249,17 @@
   flex-direction: column;
   padding: 20px;
   width: 40vw;
-  height: 24vh;
-  background-color: darkviolet;
+  height: 26vh;
+  border-bottom: 1.4px solid lightgray;
+}
+
+.user-roommate-preferences-heading {
+  padding-bottom: 18px;
+}
+
+.user-roommate-preferences-heading h1 {
+  font-family: 'Overpass', sans-serif;
+  font-size: 25px;
 }
 
 .user-roommate-preferences-columns {
@@ -254,13 +279,25 @@
 
 }
 
+.user-cleaning-preference {
+  padding-bottom: 20px;
+}
+
 .user-moving-preferences {
   display: flex;
   flex-direction: column;
   padding: 20px;
   width: 40vw;
-  height: 23vh;
-  background-color: fuchsia;
+  height: 21vh;
+}
+
+.user-moving-preferences-heading {
+  padding-bottom: 18px;
+}
+
+.user-moving-preferences-heading h1 {
+  font-family: 'Overpass', sans-serif;
+  font-size: 25px;
 }
 
 .user-moving-preferences-columns {
@@ -280,11 +317,35 @@
   width: 20vw;
 }
 
+.preferences-heading {
+  font-size: 20px;
+}
+
 .user-recent-match {
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  margin: 20px 20px 0px 20px;
+  padding-left: 40px;
   width: 40vw;
+  height: 473px;
+  border-left: 1.4px solid lightgray;
+}
+
+.user-recent-match-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.user-recent-match-heading-link h2 {
+  font-size: 15px;
+  color: rgb(176, 170, 170);
+}
+
+.user-recent-match h1 {
+  font-family: 'Overpass', sans-serif;
+  font-size: 25px;
 }
 
 /* Edit Profile Styling */
@@ -340,3 +401,49 @@
   height: 76vh;
   background-color: cyan;
 }
+
+/* Matcher Profile Page Styling */
+
+.matcher-preferences {
+  display: flex;
+  height: 495px;
+}
+
+.matcher-roommate-preferences {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  padding-left: 20px;
+}
+
+.matcher-moving-preferences {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  padding-left: 20px;
+  border-left: 1.4px solid lightgray;
+}
+
+/* Filter Styling */
+
+.filter {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50vw;
+  margin-bottom: 50px;
+}
+
+/* Find Roommate Styling */
+
+.find-roommate {
+  padding: 30px;
+}
+
+
+
+
+
+
+
+

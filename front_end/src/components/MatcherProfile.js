@@ -1,8 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createMatch } from "../actions";
+import { Link } from "react-router-dom";
+import Avatar from "@material-ui/core/Avatar";
 
 class MatcherProfile extends React.Component {
+
+  
   clickHandler = (user_id, matcher_id) => {
     this.props.createMatch(user_id, matcher_id);
   };
@@ -11,54 +15,119 @@ class MatcherProfile extends React.Component {
     return (
       // !this.props.selectedUser ? <div>Loading ...</div>:
       <div className="user-profile">
-        <div className="ui items user-card">
-          <div className="item">
-            <img
-              className="image"
-              src="https://cdn2.iconfinder.com/data/icons/avatar-profile/449/avatar_user_default_contact_profile_male-512.png"
-              alt="user-profile"
+        <div className="user-banner">
+          <div className="user-name-image">
+            <Avatar
+              style={{
+                margin: "10px",
+                width: "180px",
+                height: "180px",
+              }}
+              src={this.props.currentUser.images[0]}
             />
-            <div className="content user-summary">
-              <h1>{this.props.selectedUser.name}</h1>
-              <p>{this.props.selectedUser.summary}</p>
-              <p>Work Info: {this.props.selectedUser.work_info}</p>
-              <button
-                className="ui active green button"
-                onClick={() =>
-                  this.clickHandler(
-                    this.props.currentUser.info.id,
-                    this.props.selectedUser.id
-                  )
-                }
-              >
-                Request Match
-              </button>
+            <h1>{this.props.selectedUser.name}</h1>
+            <p>New York, NY</p>
+            <p>
+              {this.props.selectedUser.gender.toUpperCase()},{" "}
+              {this.props.selectedUser.age}
+            </p>
+            <button
+              className="ui active green button"
+              onClick={() =>
+                this.clickHandler(
+                  this.props.currentUser.info.id,
+                  this.props.selectedUser.id
+                )
+              }
+            >
+              Request Match
+            </button>
+          </div>
+
+          <div className="user-info">
+            <div className="user-summary">
+              <h1> Summary </h1>
+              <p> {this.props.selectedUser.summary} </p>
+            </div>
+
+            <div className="user-work-info">
+              <h1> Work Info </h1>
+              <p> {this.props.selectedUser.work_info} </p>
             </div>
           </div>
         </div>
 
-        <div className="ui relaxed list user-additional-info">
-          <div className="item">
-            <div className="content">
-              <a className="header">Budget</a>
-              <div className="description">
-                {this.props.selectedUser.budget}
-              </div>
+        <div className="user-additional-info">
+          <div className="user-photos-container">
+            <div className="user-photos-heading">
+              <h1>User Photos</h1>
+            </div>
+
+            <div className="user-photos">
+              {/* {this.props.selectedUser.images.map((image) => (
+                <img className="image" src={image} alt="user_photo" />
+              ))} */}
             </div>
           </div>
-          <div className="item">
-            <div className="content">
-              <a className="header">Cleaning</a>
-              <div className="description">
-                {this.props.selectedUser.cleaning}
+
+          <div className="matcher-preferences">
+            <div className="matcher-roommate-preferences">
+              <div className="user-roommate-preferences-heading">
+                <h1>Roommate Preferences</h1>
+              </div>
+              <div className="user-roommate-preferences-columns">
+                <div className="user-roommate-preferences-column-1">
+                  <div className="user-cleaning-preference">
+                    <h1 className="preferences-heading">
+                      How Often Do You Clean Your Apartment?
+                    </h1>
+                    <p> {this.props.currentUser.info.cleaning} </p>
+                  </div>
+
+                  <div className="user-pets-preference">
+                    <h1 className="preferences-heading">
+                      How Do You Feel About Pets?
+                    </h1>
+                    <p> {this.props.currentUser.info.pets} </p>
+                  </div>
+                </div>
+
+                <div className="user-roommate-preferences-column-2">
+                  <div className="user-guests-preference">
+                    <h1 className="preferences-heading">
+                      How Do You Feel About Guests?
+                    </h1>
+                    <p> {this.props.currentUser.info.guests} </p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="item">
-            <div className="content">
-              <a className="header">Guests</a>
-              <div className="description">
-                {this.props.selectedUser.guests}
+
+            <div className="matcher-moving-preferences">
+              <div className="user-moving-preferences-heading">
+                <h1>Moving Preferences</h1>
+              </div>
+              <div className="user-moving-preferences-columns">
+                <div className="user-moving-preferences-column-1">
+                  <div className="user-cleaning-preference">
+                    <h1 className="preferences-heading">Preferred Location</h1>
+                    <p> New York City </p>
+                  </div>
+
+                  <div className="user-pets-preference">
+                    <h1 className="preferences-heading">Budget</h1>
+                    <p> $ {this.props.currentUser.info.budget} </p>
+                  </div>
+                </div>
+
+                <div className="user-moving-preferences-column-2">
+                  <div className="user-guests-preference">
+                    <h1 className="preferences-heading">
+                      Preferred Move-In Date
+                    </h1>
+                    <p> {this.props.currentUser.info.move_in_date} </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { updateUser } from "../actions"
+import { updateUser } from "../actions";
 import TextField from "@material-ui/core/TextField";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -73,7 +73,7 @@ class EditProfile extends React.Component {
     })
       .then((resp) => resp.json())
       .then((user) => {
-        this.props.updateUser(user)
+        this.props.updateUser(user);
       });
   };
 
@@ -99,143 +99,147 @@ class EditProfile extends React.Component {
       <div>Loading ...</div>
     ) : (
       <div className="user-edit-form">
-        <form>
-          <ImageUploader selectImage={this.selectImage} />
-          <button onClick={this.clickHandler}>Submit</button>
+        <div className="edit-form-container">
+          <form>
+            <ImageUploader selectImage={this.selectImage} />
+            <button onClick={this.clickHandler}>Submit</button>
 
-          <div className="edit-user-info">
-            <h1> Edit User Information </h1>
-            <div className="edit-user-name-work">
-              <div className="edit-user-name">
-                <InputLabel>Name</InputLabel>
-                <TextField
-                  id="outlined-name"
-                  name="name"
-                  value={this.state.name}
-                  onChange={this.handleChange}
-                  variant="outlined"
-                />
+            <div className="edit-user-info">
+              <h1> Edit User Information </h1>
+              <div className="edit-user-name-work">
+                <div className="edit-user-name">
+                  <InputLabel>Name</InputLabel>
+                  <TextField
+                    id="outlined-name"
+                    name="name"
+                    value={this.state.name}
+                    onChange={this.handleChange}
+                    variant="outlined"
+                  />
+                </div>
+
+                <div className="edit-user-name">
+                  <InputLabel>Work Info</InputLabel>
+                  <TextField
+                    id="outlined-work-info"
+                    name="work_info"
+                    value={this.state.work_info}
+                    onChange={this.handleChange}
+                    variant="outlined"
+                  />
+                </div>
+
+                <div className="edit-user-email">
+                  <InputLabel>Email</InputLabel>
+                  <TextField
+                    id="outlined-email"
+                    name="email"
+                    value={this.state.email}
+                    onChange={this.handleChange}
+                    variant="outlined"
+                  />
+                </div>
               </div>
 
-              <div className="edit-user-name">
-                <InputLabel>Work Info</InputLabel>
+              <div className="edit-user-summary">
+                <InputLabel>Summary</InputLabel>
                 <TextField
-                  id="outlined-work-info"
-                  name="work_info"
-                  value={this.state.work_info}
-                  onChange={this.handleChange}
+                  id="outlined-multiline-static"
+                  multiline
+                  rows={5}
+                  name="summary"
+                  value={this.state.summary}
                   variant="outlined"
-                />
-              </div>
-
-              <div className="edit-user-email">
-                <InputLabel>Email</InputLabel>
-                <TextField
-                  id="outlined-email"
-                  name="email"
-                  value={this.state.email}
-                  onChange={this.handleChange}
-                  variant="outlined"
+                  inputProps={{ maxLength: 500 }}
+                  helperText="Character Limit of 500"
                 />
               </div>
             </div>
 
-            <div className="edit-user-summary">
-              <InputLabel>Summary</InputLabel>
+            <div className="edit-user-roommate-preferences">
+              <h1> Edit Roommate Preferences </h1>
+              <InputLabel>How Often Do You Clean?</InputLabel>
               <TextField
-                id="outlined-multiline-static"
-                multiline
-                rows={5}
-                name="summary"
-                value={this.state.summary}
+                select
+                name="cleaning"
+                value={this.state.cleaning}
+                onChange={this.handleChange}
                 variant="outlined"
-                inputProps={{ maxLength: 500 }}
-                helperText="Character Limit of 500"
+              >
+                {this.cleaning.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.value}
+                  </MenuItem>
+                ))}
+              </TextField>
+
+              <InputLabel>How Do You Feel About Guests?</InputLabel>
+              <TextField
+                select
+                name="guests"
+                value={this.state.guests}
+                onChange={this.handleChange}
+                variant="outlined"
+              >
+                {this.guests.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.value}
+                  </MenuItem>
+                ))}
+              </TextField>
+
+              <InputLabel>How Do You Feel About Pets?</InputLabel>
+              <TextField
+                select
+                name="pets"
+                value={this.state.pets}
+                onChange={this.handleChange}
+                variant="outlined"
+              >
+                {this.pets.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.value}
+                  </MenuItem>
+                ))}
+              </TextField>
+
+              <InputLabel>What Is Your Schedule Like?</InputLabel>
+              <TextField
+                select
+                name="schedule"
+                value={this.state.schedule}
+                onChange={this.handleChange}
+                variant="outlined"
+              >
+                {this.schedule.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.value}
+                  </MenuItem>
+                ))}
+              </TextField>
+            </div>
+
+            <div className="edit-user-moving-preferences">
+              <h1> Edit Moving Preferences </h1>
+              <InputLabel>Budget</InputLabel>
+              <TextField
+                name="budget"
+                id="outlined-budget"
+                type="number"
+                onChange={this.handleChange}
+                value={this.state.budget}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                variant="outlined"
               />
             </div>
-          </div>
 
-          <div className="edit-user-roommate-preferences">
-            <h1> Edit Roommate Preferences </h1>
-            <InputLabel>How Often Do You Clean?</InputLabel>
-            <TextField
-              select
-              name="cleaning"
-              value={this.state.cleaning}
-              onChange={this.handleChange}
-              variant="outlined"
-            >
-              {this.cleaning.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.value}
-                </MenuItem>
-              ))}
-            </TextField>
-
-            <InputLabel>How Do You Feel About Guests?</InputLabel>
-            <TextField
-              select
-              name="guests"
-              value={this.state.guests}
-              onChange={this.handleChange}
-              variant="outlined"
-            >
-              {this.guests.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.value}
-                </MenuItem>
-              ))}
-            </TextField>
-
-            <InputLabel>How Do You Feel About Pets?</InputLabel>
-            <TextField
-              select
-              name="pets"
-              value={this.state.pets}
-              onChange={this.handleChange}
-              variant="outlined"
-            >
-              {this.pets.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.value}
-                </MenuItem>
-              ))}
-            </TextField>
-
-            <InputLabel>What Is Your Schedule Like?</InputLabel>
-            <TextField
-              select
-              name="schedule"
-              value={this.state.schedule}
-              onChange={this.handleChange}
-              variant="outlined"
-            >
-              {this.schedule.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.value}
-                </MenuItem>
-              ))}
-            </TextField>
-          </div>
-
-          <div className="edit-user-moving-preferences">
-            <h1> Edit Moving Preferences </h1>
-            <InputLabel>Budget</InputLabel>
-            <TextField
-              name="budget"
-              id="outlined-budget"
-              type="number"
-              onChange={this.handleChange}
-              value={this.state.budget}
-              InputLabelProps={{
-                shrink: true,
-              }}
-              variant="outlined"
-            />
-          </div>
-
-          <button type="submit" onClick={this.handleFormSubmit}>Submit</button>
-        </form>
+            <button type="submit" onClick={this.handleFormSubmit}>
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
     );
   }

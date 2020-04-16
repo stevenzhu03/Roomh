@@ -50,47 +50,53 @@ const Filter = (props) => {
 
   return (
     <div className="filter">
-      <FormControl className={classes.formControl}>
-        <InputLabel id="gender-input">Gender</InputLabel>
-        <Select value={gender} onChange={handleGender} name="gender">
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={"male"}>Male</MenuItem>
-          <MenuItem value={"female"}>Female</MenuItem>
-        </Select>
-        <FormHelperText>Filter By Gender</FormHelperText>
-      </FormControl>
+      <div className="gender-filter">
+        <FormControl className={classes.formControl}>
+          <InputLabel id="gender-input">Gender</InputLabel>
+          <Select value={gender} onChange={handleGender} name="gender">
+            <MenuItem value="">
+              <em>None</em>
+            </MenuItem>
+            <MenuItem value={"male"}>Male</MenuItem>
+            <MenuItem value={"female"}>Female</MenuItem>
+          </Select>
+          <FormHelperText>Filter By Gender</FormHelperText>
+        </FormControl>
+      </div>
 
-      <Typography id="linear-slider" gutterBottom>
-        Filter By Budget
-      </Typography>
-      <Slider
-        value={budget}
-        min={0}
-        step={100}
-        max={5000}
-        getAriaValueText={valueLabelBudget}
-        valueLabelFormat={valueLabelBudget}
-        onChange={handleBudget}
-        valueLabelDisplay="auto"
-        aria-labelledby="linear-slider"
-      />
+      <div className="budget-filter">
+        <Typography id="linear-slider" gutterBottom>
+          Filter By Budget
+        </Typography>
+        <Slider
+          value={budget}
+          min={0}
+          step={100}
+          max={5000}
+          getAriaValueText={valueLabelBudget}
+          valueLabelFormat={valueLabelBudget}
+          onChange={handleBudget}
+          valueLabelDisplay="auto"
+          aria-labelledby="linear-slider"
+        />
+      </div>
 
-      <Typography id="linear-slider" gutterBottom>
-        Filter By Age
-      </Typography>
-      <Slider
-        value={age}
-        min={0}
-        step={1}
-        max={75}
-        getAriaValueText={valueLabelAge}
-        valueLabelFormat={valueLabelAge}
-        onChange={handleAge}
-        valueLabelDisplay="auto"
-        aria-labelledby="linear-slider"
-      />
+      <div className="age-filter">
+        <Typography id="linear-slider" gutterBottom>
+          Filter By Age
+        </Typography>
+        <Slider
+          value={age}
+          min={0}
+          step={1}
+          max={75}
+          getAriaValueText={valueLabelAge}
+          valueLabelFormat={valueLabelAge}
+          onChange={handleAge}
+          valueLabelDisplay="auto"
+          aria-labelledby="linear-slider"
+        />
+      </div>
     </div>
   );
 };
