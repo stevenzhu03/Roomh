@@ -28,7 +28,7 @@ const NavBar = (props) => {
             <Link to="/find_roommate">Find a Roommate</Link>
             Welcome!
             <Link to="/user_profile">{props.currentUser.info.username}</Link>
-            <button onClick={props.logOut}> Log Out </button>
+            <button className="ui small gray button" onClick={props.logOut}> Log Out </button>
           </span>
         ) : (
           <span className="login-signup">

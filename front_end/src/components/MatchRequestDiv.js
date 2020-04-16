@@ -23,7 +23,7 @@ const MatchRequestDiv = (props) => {
         onClick={() =>
           props.clickHandler(props.user_id, props.matcher.id)
         }
-        className="ui small button"
+        className="ui green small button"
       >
         Accept
       </button>

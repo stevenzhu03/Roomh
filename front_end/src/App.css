@@ -257,6 +257,7 @@
 
 .user-roommate-preferences-heading {
   padding-bottom: 18px;
+  color: rgb(58, 63, 213);
 }
 
 .user-roommate-preferences-heading h1 {
@@ -295,6 +296,7 @@
 
 .user-moving-preferences-heading {
   padding-bottom: 18px;
+  color: rgb(58, 63, 213);
 }
 
 .user-moving-preferences-heading h1 {
@@ -338,6 +340,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 40px;
+  color: rgb(58, 63, 213);
 }
 
 .user-recent-match-heading-link h2 {
@@ -372,6 +375,7 @@
 
 .match-page {
   display: flex;
+  justify-content: center;
   padding: 50px;
 }
 
@@ -385,15 +389,16 @@
   display: flex;
   flex-direction: column;
   height: 38vh;
-  background-color: brown;
+  padding: 20px;
+  border-bottom: 1.4px solid lightgray;
 }
 
 .match-pending {
   display: flex;
   flex-direction: column;
   height: 38vh;
+  padding: 20px;
 
-  background-color: cornflowerblue;
 }
 
 .match-accepted {
@@ -401,7 +406,8 @@
   flex-direction: column;
   width: 35vw;
   height: 76vh;
-  background-color: cyan;
+  padding-left: 40px;
+  border-left: 1.4px solid lightgray;
 }
 
 /* Matcher Profile Page Styling */
@@ -418,12 +424,22 @@
   padding-left: 20px;
 }
 
+.matcher-roommate-preferences-heading {
+  padding-bottom: 50px;
+  color: rgb(58, 63, 213);
+}
+
 .matcher-moving-preferences {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
   padding-left: 20px;
   border-left: 1.4px solid lightgray;
+}
+
+.matcher-moving-preferences-heading {
+  padding-bottom: 50px;
+  color: rgb(58, 63, 213);
 }
 
 /* Edit Form Styling */

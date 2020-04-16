@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createMatch } from "../actions";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 
 class MatcherProfile extends React.Component {
@@ -72,7 +72,7 @@ class MatcherProfile extends React.Component {
 
           <div className="matcher-preferences">
             <div className="matcher-roommate-preferences">
-              <div className="user-roommate-preferences-heading">
+              <div className="matcher-roommate-preferences-heading">
                 <h1>Roommate Preferences</h1>
               </div>
               <div className="user-roommate-preferences-columns">
@@ -104,7 +104,7 @@ class MatcherProfile extends React.Component {
             </div>
 
             <div className="matcher-moving-preferences">
-              <div className="user-moving-preferences-heading">
+              <div className="matcher-moving-preferences-heading">
                 <h1>Moving Preferences</h1>
               </div>
               <div className="user-moving-preferences-columns">
