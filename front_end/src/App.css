@@ -231,7 +231,8 @@
 .user-photos img {
   height: 260px;
   width: 200px;
-  padding-right: 20px;
+  margin-right: 20px;
+  border-radius: 10px;
 }
 
 .user-preferences-match {
@@ -468,10 +469,12 @@
 .match-request-div {
   display: flex;
   align-items: center;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
-.match-request-div hover {
+.match-request-div:hover {
   cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .match-request-name p {
