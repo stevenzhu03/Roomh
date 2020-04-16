@@ -231,6 +231,7 @@
 .user-photos img {
   height: 260px;
   width: 200px;
+  padding-right: 20px;
 }
 
 .user-preferences-match {
@@ -376,7 +377,7 @@
 .match-pending-requests {
   display: flex;
   flex-direction: column;
-  width: 50vw;
+  width: 30vw;
 }
 
 .match-requests {
@@ -397,7 +398,7 @@
 .match-accepted {
   display: flex;
   flex-direction: column;
-  width: 50vw;
+  width: 35vw;
   height: 76vh;
   background-color: cyan;
 }
@@ -424,13 +425,31 @@
   border-left: 1.4px solid lightgray;
 }
 
+/* Edit Form Styling */
+
+.edit-form-container {
+  display: flex;
+  width: 75vw;
+  justify-content: center;
+}
+
+.image-uploader {
+  display: flex;
+  flex-direction: column;
+}
+
+.image-uploader button {
+  align-self: center;
+
+}
+
 /* Filter Styling */
 
 .filter {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  width: 50vw;
+  width: 25vw;
   margin-bottom: 50px;
 }
 
@@ -440,9 +459,26 @@
   padding: 30px;
 }
 
+.find-roommate h1 {
+  margin: 8px;
+}
 
+/* Match Request */
 
+.match-request-div {
+  display: flex;
+  align-items: center;
+}
 
+.match-request-div hover {
+  cursor: pointer;
+}
+
+.match-request-name p {
+  font-size: 20px;
+  padding-left: 20px;
+  padding-right: 40px;
+}
 
 
 

@@ -41,6 +41,14 @@ export default (state = initialState, action) => {
           info: action.payload,
         },
       };
+    case "UPDATE_IMAGES":
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          images: action.payload
+        }
+      }
     default:
       return state;
   }

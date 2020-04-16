@@ -1,7 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import { confirmMatch } from "../actions";
+import { setSelectedUser } from "../actions"
 import MatchRequestDiv from "./MatchRequestDiv"
+import MatchDiv from "./MatchDiv"
 
 class MatchPage extends React.Component {
   clickHandler = (user_id, matcher_id) => {
@@ -25,16 +27,16 @@ class MatchPage extends React.Component {
 
           <div className="match-pending">
             <h1 className="ui header">Pending Matches</h1>
-            {this.props.currentUser.pending_matches.map((user) => (
-              <div className="event">{user.name}</div>
+            {this.props.currentUser.pending_matches.map((matcher) => (
+              <MatchDiv setSelectedUser={this.props.setSelectedUser} matcher={matcher} />
             ))}
           </div>
         </div>
 
         <div className="match-accepted">
           <h1 className="ui header">Matches</h1>
-          {this.props.currentUser.matches.map((user) => (
-            <div className="event">{user.name}</div>
+          {this.props.currentUser.matches.map((matcher) => (
+            <MatchDiv setSelectedUser={this.props.setSelectedUser} matcher={matcher} />
           ))}
         </div>
       </div>
@@ -46,4 +48,4 @@ const mapStateToProps = (state) => {
   return { currentUser: state.auth.currentUser };
 };
 
-export default connect(mapStateToProps, { confirmMatch })(MatchPage);
+export default connect(mapStateToProps, { confirmMatch, setSelectedUser })(MatchPage);

@@ -139,3 +139,9 @@ export const confirmMatch = (user_id, matcher_id) => (dispatch) => {
   .then(resp => resp.json())
   .then(response => dispatch({type:"CONFIRM_MATCH", payload: response}))
 }
+
+// Update Images
+export const updateImages = (images) => (dispatch) => {
+  dispatch({ type: "UPDATE_IMAGES", payload: images });
+  history.push(`/user_profile`);
+}

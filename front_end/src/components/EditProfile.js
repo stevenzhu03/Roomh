@@ -1,10 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import { updateUser } from "../actions";
+import { updateImages } from "../actions"
 import TextField from "@material-ui/core/TextField";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import ImageUploader from "./ImageUploader";
+
 
 class EditProfile extends React.Component {
   state = {
@@ -78,6 +80,7 @@ class EditProfile extends React.Component {
   };
 
   clickHandler = (event) => {
+    event.preventDefault()
     let formdata = new FormData();
     formdata.append("image", this.state.image);
 
@@ -87,7 +90,9 @@ class EditProfile extends React.Component {
         method: "POST",
         body: formdata,
       }
-    );
+    )
+    .then(resp => resp.json())
+    .then(images => this.props.updateImages(images))
   };
 
   selectImage = (image) => {
@@ -101,8 +106,11 @@ class EditProfile extends React.Component {
       <div className="user-edit-form">
         <div className="edit-form-container">
           <form>
-            <ImageUploader selectImage={this.selectImage} />
-            <button onClick={this.clickHandler}>Submit</button>
+            <div className="image-uploader">
+              <h1>Upload Image</h1>
+              <ImageUploader selectImage={this.selectImage} />
+              <button className="ui blue button" onClick={this.clickHandler}>Upload Image</button>
+            </div>
 
             <div className="edit-user-info">
               <h1> Edit User Information </h1>
@@ -235,7 +243,7 @@ class EditProfile extends React.Component {
               />
             </div>
 
-            <button type="submit" onClick={this.handleFormSubmit}>
+            <button className="ui blue button" type="submit" onClick={this.handleFormSubmit}>
               Submit
             </button>
           </form>
@@ -249,4 +257,4 @@ const mapStateToProps = (state) => {
   return { currentUser: state.auth.currentUser };
 };
 
-export default connect(mapStateToProps, { updateUser })(EditProfile);
+export default connect(mapStateToProps, { updateUser, updateImages })(EditProfile);

@@ -1,6 +1,8 @@
 import React from "react";
+import MatchDiv from "./MatchDiv"
 import { connect } from "react-redux";
 import { confirmMatch } from "../actions";
+import { setSelectedUser } from "../actions"
 import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 
@@ -129,8 +131,8 @@ class UserProfile extends React.Component {
               <div className="recent-matches">
                 {this.props.currentUser.matches
                   .slice(Math.max(this.props.currentUser.matches.length - 3, 0))
-                  .map((user) => (
-                    <div className="match-strip">{user.name}</div>
+                  .map((matcher) => (
+                    <MatchDiv setSelectedUser={this.props.setSelectedUser} matcher={matcher} />
                   ))}
               </div>
             </div>
@@ -145,4 +147,4 @@ const mapStateToProps = (state) => {
   return { currentUser: state.auth.currentUser };
 };
 
-export default connect(mapStateToProps, { confirmMatch })(UserProfile);
+export default connect(mapStateToProps, { confirmMatch, setSelectedUser })(UserProfile);

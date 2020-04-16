@@ -42,6 +42,10 @@ class UsersController < ApplicationController
         user = User.find(params[:id])
         user.images.attach(params[:image])
         user.save
+
+        images = user.images.map{|image| url_for(image)} 
+
+        render json: images
     end
 
     private
