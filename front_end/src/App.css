@@ -32,6 +32,29 @@
   
 }
 
+.user-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 33vw;
+}
+
+.user-nav h1 {
+  font-size: 20px;
+  color: rgb(57, 85, 198);
+}
+
+.user-nav-info {
+  display: flex;
+  align-items: center;
+  width: 15vw;
+  justify-content: space-between;
+}
+
+.user-nav-info a{
+  padding: 0px;
+}
+
 .header-image {
   padding-left: 50px;
 }

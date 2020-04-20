@@ -23,7 +23,7 @@ class MatcherProfile extends React.Component {
                 width: "180px",
                 height: "180px",
               }}
-              src={this.props.currentUser.images[0]}
+              src={this.props.selectedUser.image}
             />
             <h1>{this.props.selectedUser.name}</h1>
             <p>New York, NY</p>

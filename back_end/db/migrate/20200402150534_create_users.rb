@@ -16,7 +16,6 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :schedule
       t.string :pets
 
-
       t.timestamps
     end
   end

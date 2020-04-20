@@ -50,7 +50,7 @@ class UserProfile extends React.Component {
         <div className="user-additional-info">
           <div className="user-photos-container">
             <div className="user-photos-heading">
-              <h1>User Photos</h1>
+              <h1>Photos</h1>
             </div>
 
             <div className="user-photos">

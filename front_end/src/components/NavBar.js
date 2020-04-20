@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import { connect } from "react-redux";
-
+import Avatar from "@material-ui/core/Avatar";
 import { logOut } from "../actions";
 
 const NavBar = (props) => {
@@ -24,12 +24,47 @@ const NavBar = (props) => {
 
       <div className="navlinks">
         {props.currentUser ? (
-          <span className="user">
-            <Link to="/find_roommate">Find a Roommate</Link>
-            Welcome!
-            <Link to="/user_profile">{props.currentUser.info.username}</Link>
-            <button className="ui small gray button" onClick={props.logOut}> Log Out </button>
-          </span>
+          <div className="user-nav">
+            <div className="user-nav-find-roommate">
+              <Link
+                style={{
+                  fontSize: "25px",
+                  color: "#808080",
+                  fontWeight: "bold",
+                  fontFamily: "Open Sans"
+                }}
+                to="/find_roommate"
+              >
+                Find a Roommate
+              </Link>
+            </div>
+
+            <div className="user-nav-info">
+              <div className="user-nav-info-heading">
+                <h1>Welcome!</h1>
+              </div>
+
+              <div className="user-nav-info-avatar">
+                <Link to="/user_profile">
+                  <Avatar
+                    style={{
+                      margin: "10px",
+                      width: "40px",
+                      height: "40px",
+                    }}
+                    src={props.currentUser.images[0]}
+                  />
+                </Link>
+              </div>
+
+              <div className="user-nav-info-logout">
+                <button className="ui small gray button" onClick={props.logOut}>
+                  {" "}
+                  Log Out{" "}
+                </button>
+              </div>
+            </div>
+          </div>
         ) : (
           <span className="login-signup">
             <NavLink to="/login">Log In</NavLink>
