@@ -1,6 +1,6 @@
 # ROOMH
 
-Roomh is web application that allow users to find roomates in major cities, based on your preferences.
+Roomh is web application that allow users to find roommates in major cities, based on your preferences.
 
 This project utilizes a Ruby on Rails backend with a React frontend.
 
